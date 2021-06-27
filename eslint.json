@@ -1,13 +1,16 @@
 {
-  "extends":[
+  "extends": [
     "eslint:recommended",
     "airbnb"
   ],
-  "parser":"babel-eslint",
-  "plugins":[],
-  "settings":{
-    "react":{
-      "version":"17.0"
+  "parser": "babel-eslint",
+  "plugins": [],
+  "rules": {
+    "react/jsx-filename-extention": 0
+  },
+  "settings": {
+    "react": {
+      "version": "17.0"
     }
   }
 }
