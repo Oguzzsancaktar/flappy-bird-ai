@@ -1,0 +1,13 @@
+{
+  "extends":[
+    "eslint:recommended",
+    "airbnb"
+  ],
+  "parser":"babel-eslint",
+  "plugins":[],
+  "settings":{
+    "react":{
+      "version":"17.0"
+    }
+  }
+}
