@@ -6,3 +6,8 @@
 - Defined velocity, gravity,
 - Pipe positions with FPS 
 - So TODAY I creatied gaming area 
+
+## Part 2 
+
+- Bird and Pipe Action created,
+- Game created and ready to play without GUI
