@@ -14,7 +14,7 @@ class Bird {
     this.y = 150;
 
     this.gravity = 0;
-    this.velocity = 0.1;
+    this.velocity = 0.01;
   }
 
   draw() {
@@ -35,7 +35,7 @@ class Bird {
   };
 
   jump = () => {
-    this.gravity = -4;
+    this.gravity = -1;
   };
 }
 class Pipe {
@@ -79,14 +79,12 @@ class App extends Component {
     this.pipes = this.generatePipes();
     this.birds = [new Bird(ctx)];
 
-    setInterval(this.gameLoop, 1000 / FPS);
+   this.loop = setInterval(this.gameLoop, 1000 / FPS);
   }
 
   onKeyDown = (e) => {
     if (e.code === "Space") {
-      console.log("====================================");
-      console.log(e.code);
-      console.log("====================================");
+ 
       this.birds[0].jump();
     }
   };
@@ -120,10 +118,33 @@ class App extends Component {
     // Update bird positions
     this.birds.forEach((bird) => bird.update());
 
-    // detect collisions
-    this.birds.forEach((bird) => bird.update());
-
+    if(this.isGameOver()){
+      alert("Game is over !")
+      clearInterval(this.loop)
+    }
   };
+
+  isGameOver = () =>{
+
+      // detect collisions
+      let isGameOver = false;
+      this.birds.forEach(bird =>{
+        this.pipes.forEach(pipe=>{
+          if (
+            bird.y < 0 || bird.y > HEIGHT ||(
+            
+            bird.x > pipe.x 
+            && bird.y > pipe.y 
+            && bird.x  < pipe.x + pipe.width 
+            && bird.y < pipe.y + pipe.height )) {
+         
+             isGameOver = true; 
+          }
+        })
+      })
+      return isGameOver
+    }
+
   draw = () => {
     const ctx = this.canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
