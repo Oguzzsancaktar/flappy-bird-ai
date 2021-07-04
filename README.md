@@ -11,3 +11,6 @@
 
 - Bird and Pipe Action created,
 - Game created and ready to play without GUI
+
+## Part 3 
+- Rainforcement Learning
